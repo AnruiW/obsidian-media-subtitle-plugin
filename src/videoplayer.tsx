@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Subtitle } from "src/subtitle";
 import { Play, Pause } from 'lucide-react';
 
@@ -13,10 +13,12 @@ export function VideoPlayer({
 	videoPath,
 	fileName,
 	rawSubtitle,
+	children
 }: {
 	videoPath: string;
-	fileName: string;
+	fileName: string | never;
 	rawSubtitle: string[];
+	children?: React.ReactNode;
 }) {
 
 	// for video playing time
