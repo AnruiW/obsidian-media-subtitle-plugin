@@ -3,7 +3,7 @@
 	"name": "Media Subtitle",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Allows inserting media into notes and show corresponding subtitles.",
-	"author": "Anrui W",
-	"isDesktopOnly": false
+	"description": "Create a view with media on the top and subtitle below.",
+	"author": "Anrui Wang",
+	"isDesktopOnly": true
 }
