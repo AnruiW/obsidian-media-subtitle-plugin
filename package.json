@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "media-subtitle",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "This is a media plugin for obsidian.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
@@ -30,5 +30,9 @@
 		"react-player": "^3.3.2",
 		"react-split": "^2.0.14",
 		"react-split-pane-next": "^1.0.6"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AnruiW/obsidian-media-subtitle-plugin.git"
 	}
 }
