@@ -47,4 +47,4 @@ This is the sample subtitle
 
 ## License
 
-[MIT](LICENSE)
+[Apache 2.0](LICENSE)
