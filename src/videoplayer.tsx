@@ -86,22 +86,11 @@ export function VideoPlayer({
 		}
 	};
 
-	// const handelVideoMetaData = () => {
-	// 	if (videoRef.current) {
-	// 		videoRef.current.addEventListener('loadedmetadata', () => {
-	// 			setDuration(videoRef.current?.duration || 0);
-	// 		});
-	// 	}
-	// }
-
 	// 分割条拖动开始事件
 	const handleMouseDown = (e: React.MouseEvent) => {
 		setIsDragging(true);
 		dragStartY.current = e.clientY;
 		initialTopHeight.current = topHeight;
-		// 设置鼠标样式
-		document.body.style.cursor = 'ns-resize';
-		// 防止鼠标移动时选中文本
 		e.preventDefault();
 	};
 
@@ -125,8 +114,6 @@ export function VideoPlayer({
 	// 分割条拖动结束事件
 	const handleMouseUp = () => {
 		setIsDragging(false);
-		// 确保光标样式重置
-		document.body.style.cursor = '';
 	};
 
 	// 添加和清理全局事件监听器
