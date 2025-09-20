@@ -80,30 +80,16 @@ export function Subtitle({currentTime, subtitles}: {currentTime: number, subtitl
 				key={subtitleIndex}
 				className={`subtitle-item ${isActive ? "active" : ""} ${isFinish ? "past" : ""} ${isFuture ? "future" : ""}`}
 			>
-				<div 
-					className="subtitle-item-status-info"
-					style={{
-						display: 'flex',
-						alignItems: 'center'
-					}}
-				>
+				<div className="subtitle-item-status-info">
 					<span 
 						className="time-info"
-						style={{
-							color: isActive ? '#00adb5' : 'white',
-							fontSize: '16px',
-							fontWeight: 'bold',
-							marginLeft: '3px'
-						}}
+						style={{color: isActive ? '#00adb5' : 'white'}}
 					>
 						{`${item.get("startTime")} ⭢ ${item.get("endTime")}`}
 					</span>
 					{isActive && (
 						<>
-							<span 
-								className="current-indicator" 
-								style={{fontSize: '8px', marginLeft: '10px'}}
-							>
+							<span className="current-indicator">
 								● Playing
 							</span>
 						</>

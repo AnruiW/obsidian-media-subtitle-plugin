@@ -150,25 +150,10 @@ export function VideoPlayer({
 		<div 
 			className="app-container" 
 			ref={containerRef}
-			style={{
-				display: 'flex',
-				flexDirection: 'column',
-				height: '100vh', // 使用视口高度确保容器有明确的尺寸
-				width: '100%',
-				boxSizing: 'border-box'
-			}}
 		>
 			<div
 				className="video-section"
-				style={{
-					height: `${topHeight}px`,
-					backgroundColor: "#000", // 黑色背景更适合视频播放
-					padding: "5px",
-					overflow: "hidden", // 防止视频超出容器
-					display: 'flex',
-					flexDirection: 'column',
-					position: 'relative'
-				}}
+				style={{height: `${topHeight}px`}}
 			>
 				<video
 					className="video-player"
@@ -180,21 +165,8 @@ export function VideoPlayer({
 					onClick={togglePlayPause}
 					onPlay={() => setIsPlaying(true)}
 					onPause={() => setIsPlaying(false)}
-					style={{ position: 'relative', top: 0, left: 0 }}
 				/>
-				<div 
-					className="video-controls"
-					style={{
-						position: 'absolute',
-						bottom: 0,
-						left: 0,
-						right: 0,
-						background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.7))',
-						display: 'flex',
-						alignItems: 'center',
-						gap: '12px'
-					}}
-				>
+				<div className="video-controls">
 					<button
 						className="video-play-control"
 						onClick={togglePlayPause}
@@ -206,40 +178,13 @@ export function VideoPlayer({
 			<div 
 				className="split-bar"
 				onMouseDown={handleMouseDown}
-				style={{
-					height: "6px",
-					backgroundColor: "transparent",
-					cursor: "ns-resize",
-					flexShrink: 0,
-					position: "relative",
-					transition: "background-color 0.2s ease",
-					userSelect: 'none'
-				}}
 				title="拖动调整大小"
 			>
-				<div
-					style={{
-						position: "absolute",
-						top: "50%",
-						left: "50%",
-						transform: "translate(-50%, -50%)",
-						width: "60px",
-						height: "2px",
-						backgroundColor: isDragging ? "#444" : "#999",
-						borderRadius: "1px",
-						transition: "background-color 0.2s ease"
-					}}
-				></div>
+				<div className="the-split-bar-item"></div>
 			</div>
 			<div
 				className="subtitle-section"
-				style={{
-					height: `calc(100% - ${topHeight}px - 6px)`,
-					backgroundColor: "#222831",
-					padding: "12px",
-					overflow: "auto",
-					fontSize: '14px'
-				}}
+				style={{height: `calc(100% - ${topHeight}px - 6px)`}}
 			>
 				<Subtitle currentTime={currentTime * 1000} subtitles={subtitles} />
 			</div>

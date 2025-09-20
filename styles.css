@@ -32,9 +32,21 @@ body {
 
 .app-container {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  padding: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
 
 .video-header {
   padding: 20px;
@@ -73,8 +85,10 @@ body {
   height: 100%;
   object-fit: contain;
   cursor: pointer;
+  position: relative;
+  top: 0;
+  left: 0;
 }
-
 
 .video-controls {
   position: absolute;
@@ -86,6 +100,29 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.split-bar {
+  height: 6px;
+  background-color: transparent;
+  cursor: ns-resize;
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.the-split-bar-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 2px;
+  background-color: #999;
+  border-radius: 1px;
+  transition: background-color 0.2s ease;
+  border-radius: 1px;
 }
 
 .control-button {
@@ -128,6 +165,12 @@ body {
   font-weight: 500;
   min-width: 100px;
   text-align: right;
+}
+
+.time-info {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 3px;
 }
 
 /* Resize Handle */
@@ -197,9 +240,13 @@ body {
 .subtitle-section {
   display: flex;
   flex-direction: column;
+  background-color: #222831;
   min-height: 200px;
   max-height: 85vh;
   overflow: hidden;
+  padding: 12px;
+  overflow: auto;
+  font-size: 14px;
 }
 
 .subtitle-header {
@@ -237,20 +284,7 @@ body {
   border-radius: 8px;
   border-left: 4px solid transparent;
   transition: all 0.3s ease-in-out;
-  background-color: #f8f9fa;
   position: relative;
-}
-
-.subtitle-edit-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  resize: vertical;
-  margin-bottom: 15px;
 }
 
 .subtitle-edit-textarea:focus {
@@ -267,25 +301,13 @@ body {
   animation: activeSubtitle 0.5s ease-in-out;
 }
 
-/* @keyframes activeSubtitle {
-  0% {
-    background-color: #f8f9fa;
-    transform: scale(1);
-  }
-  50% {
-    background-color: #bbdefb;
-    transform: scale(1.03);
-  }
-  100% {
-    background-color: #e3f2fd;
-    transform: scale(1.02);
-  }
-} */
-
 .subtitle-item.past {
   opacity: 0.7;
   background-color: transparent;
   border-left-color: #28a745;
+  border-right: 1px solid #393e46;
+  border-top: 1px solid #393e46;
+  border-bottom: 1px solid #393e46;
   transition: all 0.3s ease-in-out;
 }
 
@@ -348,12 +370,19 @@ body {
   background: linear-gradient(135deg, #dc3545, #c82333);
   color: white;
   padding: 6px 12px;
+  font-size: 8px;
+  margin-left: 10px;
   border-radius: 12px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
   animation: pulseIndicator 2s ease-in-out infinite;
+}
+
+.subtitle-item-status-info {
+  display: flex;
+  align-items: center;
 }
 
 @keyframes pulseIndicator {
